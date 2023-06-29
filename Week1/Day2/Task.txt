@@ -1,0 +1,20 @@
+ex 1=>  create global variable with let and var , try to access in a function.
+ex 2=>  create variable inside a function with let and var , try to access in a if. 
+
+ex 3=>  create variable inside a block with let and var , try to access in a function.
+ex 4=> create variable inside a function with let and var , try to access in a global area.
+
+ex5 => creat variables in block without function { } and try to access it in global scope . (No function required).
+
+
+
+Interview:
+Mitanshi
+viabhav
+Akarsh
+Preeti
+
+Deepak
+Anant
+Sing
+Ujwal

@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=
+    , initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <!-- <p id="para">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolores fuga nemo ab excepturi reprehenderit tempora magni voluptatum voluptate aspernatur aliquid.</p>
+
+
+    <button id="btn-login"> LogIn</button> -->
+
+
+    <!-- <p id="p1"  onclick="login()" onmouseenter="login()"> HTML Attribute</p> -->
+
+
+    <!-- <div class="div-mouse" style="width: 100px; height: 100px; background-color: red;">
+
+    -->
+    <div id="displayDiv">
+    </div>
+    
+    <button id="btn-data">Display Obj Names</button>
+
+<!-- Bubbling and Capturing -->
+<div id="parent0" style="padding:25px; border: 2px solid black; background-color: green;">
+    <div id="parent" style="padding:25px; border: 2px solid black; background-color: yellow;">
+        <div id="child" style="padding:20px; border: 2px solid red; background-color: red;">
+
+        </div>
+    </div>
+
+    </div>
+
+    <script>
+
+// Bubbling and Capturing
+
+const parentElement = document.querySelector('#parent');
+const parentElement0 = document.querySelector('#parent0');
+const childElement = document.querySelector('#child');
+
+function parentFunction0() {
+  console.log('Parent clicked0');
+
+}
+
+
+// 
+function parentFunction() {
+  console.log('Parent clicked');
+  event.stopPropagation();
+
+  
+}
+
+function childFuntion() {
+  console.log('Child clicked');
+ 
+
+}
+
+parentElement0.addEventListener('click',  parentFunction0,true);
+parentElement.addEventListener('click',  parentFunction,true);
+childElement.addEventListener('click',childFuntion );
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        const displayDivElement=document.getElementById('displayDiv');
+        const btnElement=document.getElementById('btn-data');
+
+        // console.log(displayDivElement);
+        // console.log(btnElement);
+
+
+        let userData=[];
+
+        function getData(){
+
+            for(let i=0;i<3;i++){
+                let obj={
+                    name:`Yash${i}`,
+                    city:"Noida"
+                }
+
+                userData.push(obj);
+            }
+            console.log(userData);
+        }
+        getData();
+
+        function displayData(event){
+
+     
+            console.log('Event:', event);
+            console.log('Event type:', event.type);
+            console.log('Target element:', event.target);
+
+            event.target.innerHTML="button got clicked";
+
+            // code to print data in div tag
+            for(let i=0;i<userData.length;i++){
+                displayDivElement.innerHTML+=`<h1>${userData[i].name}</h1>`;
+            }
+            
+ 
+        }
+
+        btnElement.addEventListener('click',displayData);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        // const btnLogin=document.getElementById('btn-login');
+        // const divElement=document.getElementsByClassName('div-mouse')[0];
+        // function changeColorYellow(){
+        //     divElement.style.backgroundColor="yellow";
+        //     divElement.innerHTML="Mouse is inside";
+        // }
+
+        // function changeColorRed(){
+        //     divElement.style.backgroundColor="red";
+        //     divElement.innerHTML="Mouse is out";
+        // }
+
+        // divElement.addEventListener('mouseenter',changeColorYellow);
+        // divElement.addEventListener('mouseout',changeColorRed);
+
+
+
+        // function login(){
+        //     console.log("User clicked Log in button");
+        // }
+
+        // btnLogin.addEventListener('click',login);
+
+
+
+
+
+
+        // const paraElement=document.getElementById('para');
+        // console.log(paraElement);
+
+        // paraElement.style.backgroundColor="red";
+        // paraElement.innerHTML="Changed Text";
+        // paraElement.style.height="400px";
+        // const paraElement=document.querySelector('#para'); 
+
+
+        
+
+
+
+    </script>
+</body>
+</html>

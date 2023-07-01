@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <button onclick="GetData()">
+        Click to get data.
+    </button>
+
+    <!-- <button onclick="SendData()">
+        Click to Send data.
+    </button> -->
+
+    <script>
+        //JSON Commands:
+        // json-server --watch db.json
+
+        let userArray = [];
+
+        function displayArray() {
+            // console.log(data);
+            console.log(userArray);
+        }
+
+
+        function fetchData() {
+            //Getting data from JSON Server
+            console.log("Above Fetch");
+            fetch('http://localhost:3000/users')
+                .then((response) => response.json())
+                .then((data) => {
+                    // console.log(data);
+                    // data.forEach(user => {
+                    //     // console.log(user);
+                    //     userArray.push(user.name);
+                    //     
+                    // });
+
+                    displayArray(data);
+                })
+                .catch((Error) => console.log("Error occured"));
+
+            console.log("below Fetch");
+
+            // console.log(userArray);
+
+        }
+
+        async function fetchDataAwait() {
+            console.log("above await");
+            let response = await fetch('http://localhost:3000/users');
+            let data = await response.json();
+            data.forEach(user => {
+                // console.log(user);
+                userArray.push(user.name);
+            });
+            // console.log(data);
+            console.log("below await");
+            displayArray();
+            // console.log(userArray);
+
+            //Dispaly arrayElement()
+
+
+        }
+
+
+        function GetData() {
+            // fetchData();
+            fetchDataAwait();
+        }
+
+
+        // Post request using fetch
+        function SendData() {
+            fetch('http://localhost:3000/users', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    name: "Sameer",
+                    contactNo: "8888888888"
+                })
+            }).then().then().catch();
+
+
+
+
+
+            ///////Sending PUT request
+
+            fetch(`http://localhost:3000/users/${userId}`, {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(updatedUserData),
+            })
+                .then(response => response.json())
+                .then(data => {
+                    console.log(data);
+                })
+                .catch(error => {
+                    console.error(error);
+                });
+
+
+                ///////Sending Delete request.
+
+            const userId = 1;
+
+            fetch(`http://localhost:3000/users/${userId}`, {
+                method: 'DELETE',
+            })
+                .then(response => response.json())
+                .then(data => {
+                    console.log(data);
+                })
+                .catch(error => {
+                    console.error(error);
+                });
+        }
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <form>
+        <label for="username">Name:</label>
+        <input type="text" name="username" id="username"><br><br>
+        <label for="userpass">Pass:</label>
+        <input type="text" name="userpass" id="userpass"><br><br>
+        <input type="submit" value="submit" id="form-btn">
+
+    </form>
+
+    <div>
+
+    </div>
+
+    <script>
+       //const formElement=document.getElementById('form-btn');
+        const formElement=document.querySelector('form');
+        const divElement=document.querySelector('div');
+        
+
+        function displayData(event){
+            event.preventDefault();
+            let userName=document.getElementById('username').value;
+            let userPass=document.getElementById('userpass').value;
+
+
+            divElement.innerHTML+=`<p>${userName}</p>
+            <p>${userPass}</p>
+            `
+
+
+        }
+
+
+        
+        formElement.addEventListener('submit',displayData);
+    </script>
+</body>
+</html>

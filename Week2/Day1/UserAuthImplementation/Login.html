@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div ng-controller="LoginCtrl">
+        
+        <!-- <input type="text" name="" id="" ng-model="a">
+        {{a}} -->
+        <div ng-if="toggle">
+          
+                <label for="username">Name:</label>
+                <input type="text" name="" id="username" ng-model="$parent.username">
+                {{username}}
+                <br><br>
+                <label for="useremail">Email:</label>
+                <input type="email" name="" id="useremail" ng-model="$parent.useremail">
+                {{useremail}}
+                <br><br>
+                <label for="userpass">Password:</label>
+                <input type="text" name="" id="userpass" ng-model="$parent.userpass">
+                {{userpass}}
+                <br>
+                <br>
+                <button ng-click="signUp()">Register</button>
+            <br>
+            <p ng-click="changeView()">SignIn</p>            
+        </div>
+
+        <div ng-if="!toggle">
+            <form >
+                <label for="useremail">Email:</label>
+                <input type="email" name="" id="useremail" ng-model="$parent.useremail">
+                <br><br>
+                <label for="userpass">Password:</label>
+                <input type="text" name="" id="userpass" ng-model="$parent.userpass">
+                <br>
+                <br>
+                <button ng-click="signIn()">SignIn</button>
+
+            </form>
+            <br>
+            <br>
+            <p ng-click="changeView()">SignUp</p>   
+        </div>
+    </div>
+
+    <!-- AngularJS script -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.js"></script>
+    <script src="LoginCtrl.js"></script>
+</body>
+</html>

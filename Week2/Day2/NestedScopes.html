@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <div ng-controller="userCtrl">
+        <h3>{{username}}</h3><!-- Deepak  -->
+        
+        <h2>{{city}}</h2>
+         <div ng-controller="friendCtrl">
+            <h3>{{friendName}}</h3>
+            <h3>{{username}}</h3>
+            <h3>{{$parent.username}}</h3>
+         </div>
+    </div>
+
+
+    <div ng-controller="companyCtrl">
+        <h1>Hii</h1>
+            <h3>{{company}}</h3> 
+            <h2>{{city}}</h2>
+            <!-- <h3>{{username}}</h3> -->
+    </div>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.js"></script>
+    <script>
+        var app=angular.module("app",[]);
+
+        app.run(["$rootScope",function($rootScope){
+            $rootScope.city="Noida";
+        }]);
+
+        app.controller("userCtrl",["$scope","$rootScope",function($scope,$rootScope){
+            $scope.username="Deepak";
+            $rootScope.city="Mumbai";
+        }]);
+
+        app.controller("friendCtrl",["$scope",function($scope){
+            $scope.friendName="Ayush";
+            $scope.username="Shubham";
+        }]);
+
+
+        app.controller("companyCtrl",["$scope",function($scope){
+            $scope.company="revauture";
+        }]);
+    </script>
+</body>
+</html>

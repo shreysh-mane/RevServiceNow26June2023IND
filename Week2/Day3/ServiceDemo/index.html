@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <div ng-controller="demoCtrl">
+        <div ng-repeat="user in arr">
+            <h3>{{user.name}}</h3>
+            <h2>{{user.city}}</h2>
+        </div>
+    </div>
+
+    <div ng-controller="addCtrl">
+        <button ng-click="addEle(3)"> Click to add data</button>
+    </div>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.js"></script>
+    <script src="index.js"></script>
+    <script src="demoService.js"></script>
+</body>
+</html>

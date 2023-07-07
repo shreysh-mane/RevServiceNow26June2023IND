@@ -7,7 +7,7 @@ function fetchDataAjax() {
 
   xhttp.open(
     "GET",
-    "https://newsapi.org/v2/top-headlines?country=us&apiKey=c23fdb0f8ee64600b703a164fb201a50",
+    "https://newsapi.org/v2/top-headlines?country=us&apiKey=",
     true
   );
   xhttp.send();
@@ -37,7 +37,7 @@ function fetchData() {
    
 
 
-    fetch('https://newsapi.org/v2/top-headlines?country=us&apiKey=c23fdb0f8ee64600b703a164fb201a50')
+    fetch('https://newsapi.org/v2/top-headlines?country=us&apiKey=')
               .then(response => {
                 // console.log(response);
                 return response.json()

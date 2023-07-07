@@ -10,7 +10,7 @@
         
         <!-- <input type="text" name="" id="" ng-model="a">
         {{a}} -->
-        <div ng-if="toggle">
+        <div ng-if="!toggle">
           
                 <label for="username">Name:</label>
                 <input type="text" name="" id="username" ng-model="$parent.username">
@@ -30,8 +30,8 @@
             <p ng-click="changeView()">SignIn</p>            
         </div>
 
-        <div ng-if="!toggle">
-            <form >
+        <div ng-if="toggle">
+
                 <label for="useremail">Email:</label>
                 <input type="email" name="" id="useremail" ng-model="$parent.useremail">
                 <br><br>
@@ -41,7 +41,7 @@
                 <br>
                 <button ng-click="signIn()">SignIn</button>
 
-            </form>
+            <p ng-if="failed">Login Failed</p>
             <br>
             <br>
             <p ng-click="changeView()">SignUp</p>   

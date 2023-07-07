@@ -5,7 +5,7 @@ app.controller('LoginCtrl',['$scope','userService',function($scope,userService){
 
     //User Array:
 
-    var userData=[];
+    // var userData=[];
 
     $scope.changeView=function(){
     
@@ -19,30 +19,40 @@ app.controller('LoginCtrl',['$scope','userService',function($scope,userService){
     $scope.userpass;
 
     $scope.signUp=function(){
-     
-      
+        
         var user={
             name:$scope.username,
             email:$scope.useremail,
             password:$scope.userpass
         }
-        userService.registerUser(user);
+        userService.registerUser(user,function(data){
+            
+            console.log(data);
+        
+        });
 
 
     }
 
     $scope.signIn=function(){
         var flag=true;
-        for(user of userData){
-            if(user.email==$scope.useremail && user.password==$scope.userpass){
-                
-                console.log("Sucess");
-                flag=false;
+
+        userService.getUsers(function (data){
+            
+            userData=data;
+            for(user of userData){
+                if(user.email==$scope.useremail && user.password==$scope.userpass){
+                    
+                    console.log("Sucess");
+                    $scope.failed=false;
+                    flag=false;
+                }
             }
-        }
-        if(flag){
-            console.log("Failed");
-        }
+            if(flag){
+                $scope.failed=true;
+                console.log("Failed");
+            }
+        });   
 
     }
 
